@@ -32,7 +32,6 @@ import (
 	porttypes "github.com/cosmos/ibc-go/v8/modules/core/05-port/types"
 	ibcexported "github.com/cosmos/ibc-go/v8/modules/core/exported"
 	ibckeeper "github.com/cosmos/ibc-go/v8/modules/core/keeper"
-	solomachine "github.com/cosmos/ibc-go/v8/modules/light-clients/06-solomachine"
 	ibctm "github.com/cosmos/ibc-go/v8/modules/light-clients/07-tendermint"
 
 	"github.com/gorilla/mux"
@@ -598,7 +597,6 @@ func NewFeeApp(
 		params.NewAppModule(app.ParamsKeeper),
 
 		// IBC modules
-		solomachine.NewAppModule(),
 		ibctm.NewAppModule(),
 		ibc.NewAppModule(app.IBCKeeper),
 		packetforward.NewAppModule(app.PacketForwardKeeper, app.GetSubspace(packetforwardtypes.ModuleName)),
